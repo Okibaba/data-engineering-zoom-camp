@@ -12,10 +12,23 @@ docker build -t test:pandas .
 
 docker run -it python:3.9
 docker run -it --entrypoint bash python:3.9
+docker to run postgres:
 
+  docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v c:/Users/oki4s/Desktop/data-engineering-zoom-camp/data-engineering-zoom-camp/week1/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:13
+
+pip install pgcli --user
+pip install "psycopg[binary,pool]"
+
+C:\Users\oki4s\Desktop\data-engineering-zoom-camp\data-engineering-zoom-camp\week1\ny_taxi_postgres_data
 Wk 1 assignment:
 #1 --rm
-#2 wheel    0.42.0
+#2 wheel      0.42.0
 
 
 
