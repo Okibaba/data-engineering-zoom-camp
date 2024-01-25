@@ -1,0 +1,22 @@
+Week 1:
+->started reading data engineering text
+01/20/2024
+->reading up data engineering book
+01/21/2023
+-> began ch1 videos-> watched docker and terrraform intro
+
+01/22/2024
+Youtube guy!
+I think it is important to note that the config file needs to be named 'Dockerfile' with no extension and also you need to run "docker build -t test:pandas ." from the directory where you saved this file.
+docker build -t test:pandas .
+
+docker run -it python:3.9
+docker run -it --entrypoint bash python:3.9
+
+Wk 1 assignment:
+#1 --rm
+#2 wheel      0.42.0
+
+
+
+
