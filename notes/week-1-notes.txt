@@ -1,0 +1,166 @@
+Week 1:
+week 1 follow along notes:
+https://docs.google.com/document/d/e/2PACX-1vRJUuGfzgIdbkalPgg2nQ884CnZkCg314T_OBq-_hfcowPxNIA0-z5OtMTDzuzute9VBHMjNYZFTCc1/pub
+->started reading data engineering text
+01/20/2024
+->reading up data engineering book
+01/21/2023
+-> began ch1 videos-> watched docker and terrraform intro
+
+01/22/2024
+
+docker run -it python:3.9
+docker run -it --entrypoint bash python:3.9
+docker to run postgres:
+
+  docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v c:/Users/oki4s/Desktop/data-engineering-zoom-camp/data-engineering-zoom-camp/week1/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:13
+
+pip install pgcli --user
+pip install "psycopg[binary,pool]"
+pgcli -h localhost -p 5432 -u root -d ny_taxi
+
+docker network create pg-network
+
+  docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v c:/Users/oki4s/Desktop/data-engineering-zoom-camp/data-engineering-zoom-camp/week1/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  --network=pg-network \
+  --name pg-database \
+  postgres:13
+
+
+
+
+docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 8080:80 \
+  --network=pg-network \
+  --name pgadmin-2 \
+  dpage/pgadmin4
+
+
+RUN SCRIPT WITH PARAMETER ARGUMENTS:
+
+URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+
+python ingest_data.py \
+  --user=root \
+  --password=root \
+  --host=localhost \
+  --port=5432 \
+  --db=ny_taxi \
+  --table_name=yellow_taxi_trips \
+  --url=${URL} 
+
+DOCKERIZE INGESTION
+update Dockerfile with your instructions, then run from directory the f.f:
+docker build -t taxi_ingest:v001 .
+
+RUN SCRIPT WITH DOCKER
+URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+
+docker run -it \
+  --network=pg-network \
+  taxi_ingest:v001 \
+    --user=root \
+    --password=root \
+    --host=pg-database \
+    --port=5432 \
+    --db=ny_taxi \
+    --table_name=yellow_taxi_trips \
+    --url=${URL}
+
+
+GCLOUD SET UP:
+SSH
+https://cloud.google.com/compute/docs/connect/create-ssh-keys
+ssh -i ~/.ssh/gcp okibaba@34.16.197.150
+htop
+
+wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
+wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
+
+bash Anaconda3-2023.09-0-Linux-x86_64.sh
+
+CONFIG:
+cd .ssh/
+setx PATH "%PATH%;C:\Users\YourUsername\AppData\Local\Programs\Microsoft VS Code\bin"
+
+SSH LOG ON
+ssh de-zoomcamp
+
+pgcli -h localhost -U root  -d ny_taxi
+
+ctrl d exit pgcli
+
+
+### Google Cloud SDK Authentication 
+
+* Now create a service account and generate keys like shown in the videos
+* Download the key and put it to some location, e.g. `.gc/ny-rides.json`
+* Set `GOOGLE_APPLICATION_CREDENTIALS` to point to the file
+
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS=~/.gc/ny-rides.json
+```
+
+Now authenticate: 
+
+```bash
+gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
+```
+
+C:\Users\oki4s\Desktop\data-engineering-zoom-camp\data-engineering-zoom-camp\week1\ny_taxi_postgres_data
+Wk 1 assignment:
+#1 --rm
+#2 wheel      0.42.0
+#3 15612
+SELECT COUNT(*) FROM green_taxi_data
+WHERE CAST(lpep_pickup_datetime AS text) LIKE '2019-09-18%'
+AND CAST(lpep_dropoff_datetime AS text) LIKE '2019-09-18%'
+
+#4"2019-09-26"
+
+SELECT DATE(lpep_pickup_datetime) AS DAY, MAX(trip_distance) 
+FROM green_taxi_data
+GROUP BY DATE(lpep_pickup_datetime)
+ORDER BY MAX(trip_distance) DESC
+LIMIT 1
+
+
+#5 "Brooklyn","Manhattan" ,"Queens"
+SELECT z."Borough", SUM(t.total_amount) AS total_revenue
+FROM green_taxi_data t
+JOIN zones z ON t."PULocationID" = z."LocationID"
+WHERE DATE(t.lpep_pickup_datetime) = '2019-09-18'
+AND z."Borough" != 'Unknown'
+GROUP BY z."Borough"
+HAVING SUM(t.total_amount) > 50000
+ORDER BY total_revenue DESC
+LIMIT 100
+
+
+#6 JFK Airport
+SELECT z_dropoff."Zone" AS dropoff_zone, MAX(t.tip_amount) AS largest_tip
+FROM green_taxi_data t
+JOIN zones z_pickup ON t."PULocationID" = z_pickup."LocationID"
+JOIN zones z_dropoff ON t."DOLocationID" = z_dropoff."LocationID"
+WHERE z_pickup."Zone" = 'Astoria'
+GROUP BY z_dropoff."Zone"
+ORDER BY largest_tip DESC
+LIMIT 1
+
+
+
+
+
