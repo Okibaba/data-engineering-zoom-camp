@@ -1,0 +1,39 @@
+Wk 1 assignment:
+#1 --rm
+#2 wheel      0.42.0
+#3 15612
+SELECT COUNT(*) FROM green_taxi_data
+WHERE CAST(lpep_pickup_datetime AS text) LIKE '2019-09-18%'
+AND CAST(lpep_dropoff_datetime AS text) LIKE '2019-09-18%'
+
+#4"2019-09-26"
+
+SELECT DATE(lpep_pickup_datetime) AS DAY, MAX(trip_distance) 
+FROM green_taxi_data
+GROUP BY DATE(lpep_pickup_datetime)
+ORDER BY MAX(trip_distance) DESC
+LIMIT 1
+
+
+#5 "Brooklyn","Manhattan" ,"Queens"
+SELECT z."Borough", SUM(t.total_amount) AS total_revenue
+FROM green_taxi_data t
+JOIN zones z ON t."PULocationID" = z."LocationID"
+WHERE DATE(t.lpep_pickup_datetime) = '2019-09-18'
+AND z."Borough" != 'Unknown'
+GROUP BY z."Borough"
+HAVING SUM(t.total_amount) > 50000
+ORDER BY total_revenue DESC
+LIMIT 100
+
+
+#6 JFK Airport
+SELECT z_dropoff."Zone" AS dropoff_zone, MAX(t.tip_amount) AS largest_tip
+FROM green_taxi_data t
+JOIN zones z_pickup ON t."PULocationID" = z_pickup."LocationID"
+JOIN zones z_dropoff ON t."DOLocationID" = z_dropoff."LocationID"
+WHERE z_pickup."Zone" = 'Astoria'
+GROUP BY z_dropoff."Zone"
+ORDER BY largest_tip DESC
+LIMIT 1
+
