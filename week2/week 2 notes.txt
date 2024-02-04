@@ -1,0 +1,12 @@
+
+Deploying MAGE on GCP
+1. In variable.tf set project_id to default value to your GCP project ID
+Enable cloud firestore API
+search for api & services > cloud firestore api > click api and enable it.
+
+to deploy 
+terraform init
+terraform apply -> enter postgre sql password
+
+
+then to destroy terraform destroy
