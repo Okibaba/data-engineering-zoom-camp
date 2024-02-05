@@ -10,3 +10,31 @@ terraform apply -> enter postgre sql password
 
 
 then to destroy terraform destroy
+
+
+just completed week 2 of data-engineering-zoomcamp by DataTalksClub
+For week 2 we used MAGE for data orchestration tasks like:
+ETL-API to Postgres, API to GCS, GCS to BigQuery, Parameterized Execution, Deploying using Terraform on GCP.
+
+Course repo:
+https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/02-workflow-orchestration
+Tools:
+#Mage| Docker | PostgreSQL | Python | Google Cloud Platform (GCP) | Terraform
+
+#dezoomcamp #dataengineering
+
+-Ingesting data with MAGE
+-Parametrizing with MAGE
+-ELT Vs ETL pipelines
+-Writing to google storage, bigquery
+-IAC with terraform
+-deploying on GCP
+
+
+ Intro to Orchestration
+Intro to Mage
+ETL: API to Postgres
+ETL: API to GCS
+ETL: GCS to BigQuery
+Parameterized Execution
+2.2.7 - 🤖 Deployment (Optional)
