@@ -1,1 +1,2 @@
 BIG QUERY
+- clustering and partitioning makes queries more efficient
