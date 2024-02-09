@@ -1,2 +1,3 @@
 BIG QUERY
 - clustering and partitioning makes queries more efficient
+-can do machine learning as well
