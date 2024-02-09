@@ -2,6 +2,8 @@ Questions:
 https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/cohorts/2024/02-workflow-orchestration/homework.md
 Answers:
 
+codes are in current directory (truncated codes only. i copied only relevant MAGE files from my GCP VM, too large to upload all files to Github)
+
 #1 Once the dataset is loaded, what's the shape of the data?
  266855 rows x 20 columns
 
