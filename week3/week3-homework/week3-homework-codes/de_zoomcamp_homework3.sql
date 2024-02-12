@@ -25,7 +25,7 @@ CREATE OR REPLACE TABLE `okibaba-data-engineering.ny_taxi.non_partitioned_green_
 AS SELECT * FROM `okibaba-data-engineering.ny_taxi.external_green_tripdata_2022`;
 
 
-
+--create table with date time type, by updating original table
 CREATE OR REPLACE TABLE `okibaba-data-engineering.ny_taxi.corrected_green_tripdata_2022` AS
 SELECT
   VendorID,
@@ -52,9 +52,30 @@ SELECT
 FROM `okibaba-data-engineering.ny_taxi.external_green_tripdata_2022`;
 
 
--- Creating a partition and cluster table
+
+
+SELECT  COUNT(*) FROM okibaba-data-engineering.ny_taxi.external_green_tripdata_2022;
+
+SELECT DISTINCT(PULocationID) FROM okibaba-data-engineering.ny_taxi.external_green_tripdata_2022;
+
+SELECT DISTINCT(PULocationID) FROM okibaba-data-engineering.ny_taxi.non_partitioned_green_tripdata_2022;
+
+SELECT count(*) FROM okibaba-data-engineering.ny_taxi.external_green_tripdata_2022
+WHERE fare_amount=0;
+
+
 -- Creating a partition and cluster table
 CREATE OR REPLACE TABLE okibaba-data-engineering.ny_taxi.PU_partitoned_clustered_green_tripdata_2022
 PARTITION BY DATE(lpep_pickup_datetime)
 CLUSTER BY PUlocationID  AS
 SELECT * FROM okibaba-data-engineering.ny_taxi.corrected_green_tripdata_2022;
+
+
+SELECT DISTINCT PULocationID
+FROM `okibaba-data-engineering.ny_taxi.partitoned_clustered_green_tripdata_2022`
+WHERE lpep_pickup_datetime >= '2022-06-01' AND lpep_pickup_datetime <= '2022-06-30';
+
+
+SELECT DISTINCT PULocationID
+FROM `okibaba-data-engineering.ny_taxi.corrected_green_tripdata_2022`
+WHERE lpep_pickup_datetime >= '2022-06-01' AND lpep_pickup_datetime <= '2022-06-30';
