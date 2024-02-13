@@ -7,3 +7,19 @@ assignment tips using MAGE
 https://datatalks-club.slack.com/archives/C01FABYF2RG/p1707601647171659?thread_ts=1707601567.250879&cid=C01FABYF2RG
 
 
+https://datatalks-club.slack.com/archives/C01FABYF2RG/p1707714371406099?thread_ts=1707714360.210379&cid=C01FABYF2RG
+python
+import duckdb
+
+# Start DuckDB
+con = duckdb.connect(database=':memory:')
+
+# Create a table
+con.execute("CREATE TABLE my_table (id INTEGER, name VARCHAR)")
+
+# Insert data into the table
+con.execute("INSERT INTO my_table VALUES (1, 'John'), (2, 'Jane'), (3, 'Alice')")
+
+# Query the table
+result = con.execute("SELECT * FROM my_table")
+print(result.fetchdf())
