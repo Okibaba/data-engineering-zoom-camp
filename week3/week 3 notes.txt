@@ -22,4 +22,4 @@ con.execute("INSERT INTO my_table VALUES (1, 'John'), (2, 'Jane'), (3, 'Alice')"
 
 # Query the table
 result = con.execute("SELECT * FROM my_table")
-print(result.fetchdf())
+print(result.fetchd
