@@ -20,6 +20,4 @@ con.execute("CREATE TABLE my_table (id INTEGER, name VARCHAR)")
 # Insert data into the table
 con.execute("INSERT INTO my_table VALUES (1, 'John'), (2, 'Jane'), (3, 'Alice')")
 
-# Query the table
-result = con.execute("SELECT * FROM my_table")
-print(result.fetchd
+
