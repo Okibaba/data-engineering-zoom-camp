@@ -21,3 +21,9 @@ con.execute("CREATE TABLE my_table (id INTEGER, name VARCHAR)")
 con.execute("INSERT INTO my_table VALUES (1, 'John'), (2, 'Jane'), (3, 'Alice')")
 
 
+dbt videos
+https://datatalks-club.slack.com/archives/C01FABYF2RG/p1707835733017779
+
+dlt contiinued
+
+
