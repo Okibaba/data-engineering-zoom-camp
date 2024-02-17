@@ -25,5 +25,7 @@ dbt videos
 https://datatalks-club.slack.com/archives/C01FABYF2RG/p1707835733017779
 
 
+log: data structure and algorithms
+
 
 
