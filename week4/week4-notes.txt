@@ -1,0 +1,1 @@
+facts table (facts/verbs/business process) and dimensions table (nouns) consistitute the start schema
