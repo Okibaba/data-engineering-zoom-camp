@@ -10,6 +10,9 @@ https://courses.getdbt.com/courses/fundamentals
 
 questions:
 what is the key problem dbt is trying to solve. it is not clear to me why i need dbt honestly.
+dbt solving the f.f:
+-version control for your data transformations
+-
 
 
 Resources:
