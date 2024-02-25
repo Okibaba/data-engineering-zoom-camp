@@ -9,13 +9,18 @@ https://courses.getdbt.com/courses/fundamentals
 
 
 questions:
-what is the key problem dbt is trying to solve. it is not clear to me why i need dbt honestly.
+what is the key problem dbt is trying to solve?
 dbt solving the f.f:
 -version control for your data transformations
 
 
+Mage: pulling, cleaning and ingestion of raw data
+dbt: modeling tables, views, reports of curated data
+
+
 study logs:
 02/24- completed build the first dbt models you tube video- one of the worst video lectures ever!
+
 
 
 
