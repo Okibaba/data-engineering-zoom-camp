@@ -12,8 +12,15 @@ questions:
 what is the key problem dbt is trying to solve. it is not clear to me why i need dbt honestly.
 dbt solving the f.f:
 -version control for your data transformations
--
+
+
+study logs:
+02/24- completed build the first dbt models you tube video- one of the worst video lectures ever!
+
 
 
 Resources:
 [1] https://levelup.gitconnected.com/analytics-engineer-roadmap-2023-with-free-resources-873195184ebd
+
+
+-Panama & Destin Florida
