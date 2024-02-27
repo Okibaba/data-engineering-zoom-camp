@@ -1,0 +1,1 @@
+batch processing implies all data is processed in a single chunk at once.
