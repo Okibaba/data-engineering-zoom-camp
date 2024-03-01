@@ -4,3 +4,5 @@ batch processing implies all data is processed in a single chunk at once.
 task for this week:
 -reactivate gcp
 -complete home work 1 day at a time
+-installation next
+
