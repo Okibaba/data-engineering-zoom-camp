@@ -4,5 +4,18 @@ batch processing implies all data is processed in a single chunk at once.
 task for this week:
 -reactivate gcp
 -complete home work 1 day at a time
--installation next
+-installation next: use jdk 11 (older version)
+
+tips:
+ctrl + o to save in nano
+
+before running jupyter
+export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
+export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
+jupyter notebook
+
+
+Forwarding spark ports
+http://localhost:4040/jobs/
+
 
