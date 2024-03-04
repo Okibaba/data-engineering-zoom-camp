@@ -1,5 +1,6 @@
 batch processing implies all data is processed in a single chunk at once.
 SPARK has executors and modifiers*
+-one advantage of spark over sql is you may be able to operate directly on your data like in a sql-like fashion using spark.
 
 
 task for this week:
