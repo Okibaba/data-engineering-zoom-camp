@@ -18,7 +18,7 @@ jupyter notebook
 
 
 
-I
+
 Forwarding spark ports
 http://localhost:4040/jobs/
 
