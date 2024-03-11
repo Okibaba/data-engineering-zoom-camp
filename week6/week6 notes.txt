@@ -1,0 +1,2 @@
+rising wave: 
+Pretty much allows you to run sql like queries for stream data 
