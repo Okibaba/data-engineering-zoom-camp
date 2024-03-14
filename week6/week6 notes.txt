@@ -1,2 +1,6 @@
 rising wave: 
 Pretty much allows you to run sql like queries for stream data 
+
+
+kafka:
+for streaming. producers and consumers are present
