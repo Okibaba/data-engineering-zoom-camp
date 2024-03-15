@@ -4,3 +4,12 @@ Pretty much allows you to run sql like queries for stream data
 
 kafka:
 for streaming. producers and consumers are present
+
+-kafka configuration primitives
+-producers
+-consumers & consumer group ID
+-partitions
+-offsets
+-auto offset resets
+-acknowledge all
+
