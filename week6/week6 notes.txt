@@ -1,14 +1,19 @@
-rising wave: 
-Pretty much allows you to run sql like queries for stream data 
+rising wave
+allows you to run sql like queries on stream data 
 
 
-kafka:
+kafka
 for streaming. producers and consumers are present
-
--kafka configuration primitives
+kafka primitives & configurations
 -producers
--consumers & consumer group ID
--partitions
+-consumers
+-consumer group ID
+-messages
+-topics
+-cluster
+-replication factors
+-retention
+-partitions - needed for multiple consumers
 -offsets
 -auto offset resets
 -acknowledge all
