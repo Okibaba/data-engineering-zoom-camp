@@ -1,0 +1,87 @@
+Q1
+CREATE MATERIALIZED VIEW mv_avg_min_max_trip_time AS 
+SELECT 
+    pu_zone.Zone AS pickup_zone, 
+    do_zone.Zone AS dropoff_zone, 
+    AVG(EXTRACT(EPOCH FROM (trip_data.tpep_dropoff_datetime - trip_data.tpep_pickup_datetime)) / 60) AS avg_trip_duration, 
+    MIN(EXTRACT(EPOCH FROM (trip_data.tpep_dropoff_datetime - trip_data.tpep_pickup_datetime)) / 60) AS min_trip_duration, 
+    MAX(EXTRACT(EPOCH FROM (trip_data.tpep_dropoff_datetime - trip_data.tpep_pickup_datetime)) / 60) AS max_trip_duration 
+FROM 
+    trip_data 
+JOIN 
+    taxi_zone pu_zone ON trip_data.PULocationID = pu_zone.location_id 
+JOIN 
+    taxi_zone do_zone ON trip_data.DOLocationID = do_zone.location_id 
+GROUP BY 
+    pu_zone.Zone, 
+    do_zone.Zone; 
+
+SELECT 
+    pickup_zone, 
+    dropoff_zone, 
+    avg_trip_duration 
+FROM 
+    mv_avg_min_max_trip_time 
+ORDER BY 
+    avg_trip_duration DESC 
+LIMIT 1;
+=====
+Q2 
+
+CREATE MATERIALIZED VIEW mv_avg_min_max_trip_time AS 
+SELECT 
+    pu_zone.Zone AS pickup_zone, 
+    do_zone.Zone AS dropoff_zone, 
+    AVG(EXTRACT(EPOCH FROM (trip_data.tpep_dropoff_datetime - trip_data.tpep_pickup_datetime)) / 60) AS avg_trip_duration, 
+    MIN(EXTRACT(EPOCH FROM (trip_data.tpep_dropoff_datetime - trip_data.tpep_pickup_datetime)) / 60) AS min_trip_duration, 
+    MAX(EXTRACT(EPOCH FROM (trip_data.tpep_dropoff_datetime - trip_data.tpep_pickup_datetime)) / 60) AS max_trip_duration, 
+    COUNT(*) AS num_trips
+FROM 
+    trip_data 
+JOIN 
+    taxi_zone pu_zone ON trip_data.PULocationID = pu_zone.location_id 
+JOIN 
+    taxi_zone do_zone ON trip_data.DOLocationID = do_zone.location_id 
+GROUP BY 
+    pu_zone.Zone, 
+    do_zone.Zone;
+
+SELECT 
+    pickup_zone, 
+    dropoff_zone, 
+    avg_trip_duration, 
+    num_trips
+FROM 
+    mv_avg_min_max_trip_time 
+ORDER BY 
+    avg_trip_duration DESC 
+LIMIT 1;
+
+====
+
+Q3
+
+WITH LatestPickupTime AS (
+    SELECT MAX(tpep_pickup_datetime) AS max_pickup_time
+    FROM trip_data
+),
+ThresholdTime AS (
+    SELECT (max_pickup_time - INTERVAL '17 hours') AS threshold_time
+    FROM LatestPickupTime
+)
+SELECT 
+    pu_zone.Zone AS pickup_zone,
+    COUNT(*) AS num_pickups
+FROM 
+    trip_data
+    JOIN taxi_zone pu_zone ON trip_data.PULocationID = pu_zone.location_id,
+    ThresholdTime,
+    LatestPickupTime
+WHERE 
+    trip_data.tpep_pickup_datetime BETWEEN ThresholdTime.threshold_time AND LatestPickupTime.max_pickup_time
+GROUP BY 
+    pu_zone.Zone
+ORDER BY 
+    num_pickups DESC
+LIMIT 3;
+
