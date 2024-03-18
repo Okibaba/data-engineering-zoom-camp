@@ -1,5 +1,9 @@
 rising wave
 allows you to run sql like queries on stream data 
+rising wave workshop link
+https://github.com/risingwavelabs/risingwave-data-talks-workshop-2024-03-04/blob/main/workshop.md
+installing psql
+https://www.cherryservers.com/blog/how-to-install-and-setup-postgresql-server-on-ubuntu-20-04
 
 
 kafka
