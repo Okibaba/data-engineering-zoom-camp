@@ -22,3 +22,6 @@ kafka primitives & configurations
 -auto offset resets
 -acknowledge all
 
+
+kafka using python:
+
