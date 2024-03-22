@@ -25,3 +25,5 @@ kafka primitives & configurations
 
 kafka using python:
 
+HW requires using redpanda as stand in for kafka
+
