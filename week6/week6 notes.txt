@@ -27,3 +27,5 @@ kafka using python:
 
 HW requires using redpanda as stand in for kafka
 
+-logs for 3/23
+kafka python videos contd.
