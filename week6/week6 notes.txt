@@ -32,3 +32,7 @@ kafka python videos contd./
 
 03/25
 PROJECT DATA- use semi conductor date or use financial data
+
+03/28
+Project data:
+https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00516/html
