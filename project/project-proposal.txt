@@ -1,2 +1,19 @@
 data:
-use financial data
+https://datasets.imdbws.com/
+
+Project title:
+movie_trivia_dashboard
+
+questions:
+Top 5 movies ->
+Top 5 directors
+Top 5 Genres
+
+Technologies to use
+
+Terraform
+GCP->GCS, BQ 
+Mage
+Pyspark
+Dataproc
+Looker
