@@ -1,3 +1,12 @@
 Question #1
 Command used:
 docker exec -it redpanda-1 rpk help
+
+Question #2
+docker exec redpanda-1 rpk topic create test-topic
+
+
+docker exec redpanda-1 rpk topic consume test-topic
+
+Question #3
+True
