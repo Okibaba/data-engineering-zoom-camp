@@ -38,3 +38,5 @@ Project data:
 https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00516/html
 03/30/2024
 still looking for data for project
+
+http://insideairbnb.com/get-the-data

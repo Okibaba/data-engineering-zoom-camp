@@ -1,0 +1,3 @@
+Question #1
+Command used:
+docker exec -it redpanda-1 rpk help
