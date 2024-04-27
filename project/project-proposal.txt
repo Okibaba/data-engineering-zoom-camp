@@ -2,12 +2,7 @@ data:
 https://datasets.imdbws.com/
 
 Project title:
-movie_trivia_dashboard
-
-questions:
-Top 5 movies ->
-Top 5 directors
-Top 5 Genres
+visualization S&P500 volume data
 
 Technologies to use
 
