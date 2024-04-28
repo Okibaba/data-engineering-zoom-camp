@@ -1,14 +1,14 @@
 data:
-https://datasets.imdbws.com/
+
 
 Project title:
 visualization S&P500 volume data
 
-Technologies to use
+Technologies used
 
 Terraform
 GCP->GCS, BQ 
-Mage
+Mage->batch mode -> do streaming in future.
 Pyspark
 Dataproc
 Looker
