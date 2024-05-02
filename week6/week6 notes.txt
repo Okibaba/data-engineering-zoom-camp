@@ -43,3 +43,8 @@ http://insideairbnb.com/get-the-data
 
 04/10/2024
 -spark using dataproc
+
+sudo kill -9 <PID>
+
+sudo lsof -i :5432
+sudo kill -9 <PID>
