@@ -1,14 +1,19 @@
 data:
-
+https://datasets.imdbws.com/
 
 Project title:
-visualization S&P500 volume data
+stock market shock visualization
 
-Technologies used
+questions:
+Top 5 movies ->
+Top 5 directors
+Top 5 Genres
+
+Technologies to use
 
 Terraform
 GCP->GCS, BQ 
-Mage->batch mode -> do streaming in future.
+Mage
 Pyspark
 Dataproc
 Looker
