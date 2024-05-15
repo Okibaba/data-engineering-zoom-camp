@@ -7,3 +7,5 @@
 
 5/14/2024
 AWS set up - watched videos
+
+C:\Users\oki4s\.ssh
