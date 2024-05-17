@@ -8,4 +8,7 @@
 5/14/2024
 AWS set up - watched videos
 
+
+mv /c/Users/oki4s/Documents/.aws/mlops-zoomcamp.pem  /c/Users/oki4s/.ssh
+
 C:\Users\oki4s\.ssh
