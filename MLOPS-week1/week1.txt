@@ -15,3 +15,6 @@ C:\Users\oki4s\.ssh
 
 5/19/2024 
 complete installations
+
+5/21/2024
+MLOPs maturity model
