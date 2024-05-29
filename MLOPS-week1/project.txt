@@ -1,8 +1,0 @@
-Week 1 project tasks:
--use terraform to make EC2 instance
--install software onto instance
-mkdir notebooks
-within notebook folder make the following: mkdir data
-mkdir models
-wget data sources
-wget https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-02.parquet
